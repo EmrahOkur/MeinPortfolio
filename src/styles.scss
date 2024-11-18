@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+/* Farben */
+$primary-color: #6c63ff; // Lila Akzentfarbe
+$secondary-color: #00ff87; // Grün Akzentfarbe
+$background-color: #0f1624; // Dunkler Hintergrund
+$text-color-light: #ffffff; // Heller Text
+$text-color-dark: #999999; // Gedämpfter Text
+
+/* Typografie */
+$font-family: "Roboto", sans-serif;
+$heading-font-size: 2.5rem;
+$body-font-size: 1rem;
+
+/* Layout */
+$container-width: 1440px;
+$section-padding: 50px;
+
+/* Globale Stile */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color-light;
+  font-family: $font-family;
+  font-size: $body-font-size;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 700;
+  color: $text-color-light;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $section-padding;
+}
+
+button {
+  background-color: $primary-color;
+  color: $text-color-light;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
