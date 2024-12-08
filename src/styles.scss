@@ -1,57 +1,37 @@
-/* Farben */
-$primary-color: #6c63ff; // Lila Akzentfarbe
-$secondary-color: #00ff87; // Grün Akzentfarbe
-$background-color: #0f1624; // Dunkler Hintergrund
-$text-color-light: #ffffff; // Heller Text
-$text-color-dark: #999999; // Gedämpfter Text
+$toxicgreen: #39ff14;
+$dark: #141d2f;
+$purple: #9747ff;
+$neongreen: #70e61c;
+$gray: #b6b6b6;
+$red: #e61c40;
 
-/* Typografie */
-$font-family: "Roboto", sans-serif;
-$heading-font-size: 2.5rem;
-$body-font-size: 1rem;
-
-/* Layout */
-$container-width: 1440px;
-$section-padding: 50px;
-
-/* Globale Stile */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $background-color;
-  color: $text-color-light;
-  font-family: $font-family;
-  font-size: $body-font-size;
-  line-height: 1.6;
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
-  color: $text-color-light;
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 .container {
-  max-width: $container-width;
-  margin: 0 auto;
-  padding: 0 $section-padding;
-}
-
-button {
-  background-color: $primary-color;
-  color: $text-color-light;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
+  max-width: 1440px;
+  width: 1440px;
+  background-color: #141d2f;
+  padding: 0;
 }

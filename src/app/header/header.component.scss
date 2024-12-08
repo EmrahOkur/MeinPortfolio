@@ -1,50 +1,304 @@
-.header-menu {
-  width: 100%;
-  max-width: 1440px;
-  height: auto;
-  padding: 37px 100px;
+$toxicgreen: #39ff14;
+$purple: #9747ff;
+$dark: #141d2f;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0px;
   background-color: #141d2f;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: 109.03px;
+  max-height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
 
-.logo img {
-  width: 150px;
-  height: auto;
-}
-
-.header-links {
-  display: flex;
-  gap: 29px;
-}
-
-.header-link {
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  position: relative; /* Für den aktiven Zustand */
-  transition: color 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    color: #00ff87; /* Grün beim Hover */
+  .header-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    width: 100%;
+    height: 100%;
   }
 
-  &.active-link {
-    color: #00ff87; /* Grün für aktive Links */
+  .hero {
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    width: 150px;
+    font-size: 34px;
+    color: white;
+    position: relative;
+    transition: visibility 0.125s ease, opacity 0.125s ease;
+
+    &::first-letter {
+      color: $toxicgreen;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 10px $toxicgreen, 0 0 20px $toxicgreen,
+        0 0 30px $toxicgreen;
+      animation: neon-glow 1.5s infinite alternate;
+    }
+
+    &::before {
+      content: "E";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: rgba(255, 255, 255, 0.2);
+      width: 50%;
+      clip-path: inset(0 0 0 50%);
+      z-index: 2;
+      filter: blur(4px);
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover {
+      color: $toxicgreen;
+      text-shadow: 0 0 10px $toxicgreen, 0 0 20px white, 0 0 30px $toxicgreen;
+      transform: scale(1.1);
+      &::before {
+        opacity: 0.5;
+      }
+    }
   }
 
-  &.active-link::after {
-    content: ""; /* Strich unter dem aktiven Link */
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px;
-    height: 3px;
-    background-color: #9747ff !important; /* Lila Strich */
+  @keyframes neon-glow {
+    0% {
+      text-shadow: 0 0 5px $toxicgreen, 0 0 10px $toxicgreen,
+        0 0 15px $toxicgreen;
+    }
+    100% {
+      text-shadow: 0 0 15px $toxicgreen, 0 0 30px $toxicgreen,
+        0 0 45px $toxicgreen;
+    }
   }
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .desktop-navigation {
+    display: flex;
+    gap: 29px;
+    align-items: center;
+    color: white;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: "Poppins", sans-serif;
+      font-size: 23px;
+      line-height: 27.6px;
+      font-weight: 400;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: $toxicgreen;
+      }
+
+      &.active {
+        color: $toxicgreen;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          left: -2px;
+          width: 53px;
+          height: 3px;
+          background-color: $purple;
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .mobile-navigation .burger-icon {
+    transition: opacity 0.125s ease;
+    width: 30px;
+    height: 30px;
+  }
+
+  .mobile-navigation {
+    display: none;
+
+    .burger-icon {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      position: relative;
+      z-index: 11;
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      right: -100vw;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(20, 29, 47, 0.9);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: right 0.125s ease;
+
+      &.menu-open {
+        right: 0;
+      }
+
+      .overlay-header {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 37px;
+        padding-left: 79px;
+      }
+
+      .overlay-hero {
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        font-size: 34px;
+        color: white;
+        font-size: 24px;
+
+        &::first-letter {
+          color: $toxicgreen;
+        }
+      }
+
+      .menu-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 29px;
+        margin-top: 180.97px;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 23px;
+          line-height: 27.6px;
+
+          &:hover {
+            color: $toxicgreen;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .space-between {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .header {
+    height: 90px;
+    justify-content: space-between;
+    margin-left: 0;
+    margin-right: 0;
+
+    .hero {
+      font-size: 28px;
+      width: 120px;
+      text-align: center;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .desktop-navigation {
+      gap: 20px;
+
+      a {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    width: auto;
+    justify-content: space-between;
+    height: 109.03px;
+    padding: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .hero {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .desktop-navigation {
+      display: none;
+    }
+
+    .mobile-navigation {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-left: 25px;
+    width: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 25px;
+    justify-content: space-between;
+    height: 109.03px;
+
+    .hero {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .menu-desktop {
+      display: none;
+    }
+
+    .mobile-navigation {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    padding-left: 25px;
+    width: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 25px;
+  }
+}
+
+@media (min-width: 1441px) {
 }

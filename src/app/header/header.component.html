@@ -1,19 +1,54 @@
-<header class="header-menu">
-  <div class="logo">
-    <img src="../../assets/img/header-img/Logo.png" alt="Logo" />
+<div class="header">
+  <div class="header-space-between">
+    <a href="#">
+      <div class="hero">Emrah</div>
+    </a>
+
+    <div class="desktop-navigation">
+      <a href="#about" i18n>About me</a>
+      <a href="#skills" i18n>Skills</a>
+      <a href="#portfolio" i18n>Portfolio</a>
+    </div>
+
+    <div class="mobile-navigation">
+      <img
+        *ngIf="!menuOpen && !animatingClose"
+        src="../../assets/img/header-img/34. burger menu.png"
+        alt="Open Menu"
+        class="burger-icon"
+        (click)="toggleMenu()"
+      />
+
+      <img
+        *ngIf="menuOpen && !animatingClose"
+        src="../../assets/img/header-img/close.png"
+        alt="Close Menu"
+        class="burger-icon"
+        (click)="toggleMenu()"
+      />
+
+      <img
+        *ngIf="animatingClose"
+        [src]="
+          closeAnimationStage === 1
+            ? '../../assets/img/header-img/close1.png'
+            : '../../assets/img/header-img/close2.png'
+        "
+        alt="Close Animation"
+        class="burger-icon"
+      />
+
+      <div class="mobile-overlay" [class.menu-open]="menuOpen">
+        <div class="overlay-header">
+          <div class="overlay-hero">Emrah</div>
+        </div>
+        <nav class="menu-content">
+          <a href="#about" (click)="toggleMenu()">About me</a>
+          <a href="#skills" (click)="toggleMenu()">Skills</a>
+          <a href="#portfolio" (click)="toggleMenu()">Portfolio</a>
+          <a href="#contact" (click)="toggleMenu()">Contact</a>
+        </nav>
+      </div>
+    </div>
   </div>
-  <nav class="header-links">
-    <a routerLink="/about" routerLinkActive="active-link" class="header-link"
-      >About Me</a
-    >
-    <a routerLink="/skills" routerLinkActive="active-link" class="header-link"
-      >Skills</a
-    >
-    <a
-      routerLink="/portfolio"
-      routerLinkActive="active-link"
-      class="header-link"
-      >Portfolio</a
-    >
-  </nav>
-</header>
+</div>
