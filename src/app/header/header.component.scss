@@ -204,7 +204,7 @@ $dark: #141d2f;
 }
 
 @media (max-width: 1440px) {
-  .space-between {
+  .header-space-between {
     max-width: 1440px;
   }
 }
@@ -278,7 +278,7 @@ $dark: #141d2f;
       text-align: center;
     }
 
-    .menu-desktop {
+    .desktop-navigation {
       display: none;
     }
 
